@@ -76,7 +76,7 @@ public class frmGestiondeProductos extends javax.swing.JFrame {
 
         jBotonAgregar.setBackground(new java.awt.Color(255, 255, 255));
         jBotonAgregar.setForeground(new java.awt.Color(0, 0, 0));
-        jBotonAgregar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lulim.LOURDES\\Desktop\\TECNICATURA UNIVERSITARIA EN DESARROLLO DE SOFTWARE\\PRIMER AÑO\\LABORATORIO DE PROGRMACIÓN I\\icons8-agregar-a-carrito-de-compras-48.png")); // NOI18N
+        jBotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-agregar-a-carrito-de-compras-48.png"))); // NOI18N
         jBotonAgregar.setText("Agregar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -157,7 +157,7 @@ public class frmGestiondeProductos extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
