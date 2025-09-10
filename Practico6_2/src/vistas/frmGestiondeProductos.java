@@ -225,7 +225,7 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
                                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
-                .addGap(0, 45, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
