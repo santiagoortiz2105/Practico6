@@ -92,7 +92,14 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGestióndeProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGestióndeProductosActionPerformed
-        // TODO add your handling code here:
+          frmGestiondeProductos gestion = new frmGestiondeProductos();
+          jDesktopPane1.add(gestion);
+          gestion.setVisible(true);
+    try {
+        gestion.setSelected(true); 
+    } catch (java.beans.PropertyVetoException ex) {
+        ex.printStackTrace();
+    }
     }//GEN-LAST:event_jGestióndeProductosActionPerformed
 
     /**
