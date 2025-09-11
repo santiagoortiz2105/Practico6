@@ -42,12 +42,12 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox<>();
         jSpinner1 = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jBotonBuscar = new javax.swing.JButton();
+        jBotonCerrar = new javax.swing.JButton();
+        jBotonNuevo = new javax.swing.JButton();
+        jBotonGuardar = new javax.swing.JButton();
+        jBotonActualizar = new javax.swing.JButton();
+        jBotonEliminar = new javax.swing.JButton();
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -171,33 +171,66 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Buscar");
+        jBotonBuscar.setBackground(new java.awt.Color(204, 204, 204));
+        jBotonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/magnifier_magnifying_glass_icon_149435.png"))); // NOI18N
+        jBotonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonBuscarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cerrar");
+        jBotonCerrar.setBackground(new java.awt.Color(204, 204, 204));
+        jBotonCerrar.setForeground(new java.awt.Color(0, 0, 0));
+        jBotonCerrar.setText("Cerrar");
+        jBotonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonCerrarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo.png"))); // NOI18N
-        jButton3.setText("Nuevo");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBotonNuevo.setBackground(new java.awt.Color(204, 204, 204));
+        jBotonNuevo.setForeground(new java.awt.Color(0, 0, 0));
+        jBotonNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo.png"))); // NOI18N
+        jBotonNuevo.setText("Nuevo");
+        jBotonNuevo.setBorder(null);
+        jBotonNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonNuevoActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Guardar.png"))); // NOI18N
-        jButton4.setText("Guardar");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBotonGuardar.setBackground(new java.awt.Color(204, 204, 204));
+        jBotonGuardar.setForeground(new java.awt.Color(0, 0, 0));
+        jBotonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Guardar.png"))); // NOI18N
+        jBotonGuardar.setText("Guardar");
+        jBotonGuardar.setBorder(null);
+        jBotonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonGuardarActionPerformed(evt);
+            }
+        });
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Actualizar.png"))); // NOI18N
-        jButton5.setText("Actualizar");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBotonActualizar.setBackground(new java.awt.Color(204, 204, 204));
+        jBotonActualizar.setForeground(new java.awt.Color(0, 0, 0));
+        jBotonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Actualizar.png"))); // NOI18N
+        jBotonActualizar.setText("Actualizar");
+        jBotonActualizar.setBorder(null);
+        jBotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonActualizarActionPerformed(evt);
+            }
+        });
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eliminar.png"))); // NOI18N
-        jButton6.setText("Eliminar");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jBotonEliminar.setBackground(new java.awt.Color(204, 204, 204));
+        jBotonEliminar.setForeground(new java.awt.Color(0, 0, 0));
+        jBotonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eliminar.png"))); // NOI18N
+        jBotonEliminar.setText("Eliminar");
+        jBotonEliminar.setBorder(null);
+        jBotonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,23 +241,20 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
+                        .addGap(9, 9, 9)
+                        .addComponent(jBotonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jBotonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jBotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(jBotonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jBotonCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBotonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(0, 45, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,29 +286,53 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jButton1)
+                        .addComponent(jBotonBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(52, 52, 52)))
+                        .addComponent(jBotonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
+                    .addComponent(jBotonNuevo)
+                    .addComponent(jBotonGuardar)
+                    .addComponent(jBotonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBotonEliminar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonActualizarActionPerformed
+
+    private void jBotonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonNuevoActionPerformed
+
+    private void jBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonGuardarActionPerformed
+
+    private void jBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonEliminarActionPerformed
+
+    private void jBotonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonCerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonCerrarActionPerformed
+
+    private void jBotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jBotonActualizar;
+    private javax.swing.JButton jBotonBuscar;
+    private javax.swing.JButton jBotonCerrar;
+    private javax.swing.JButton jBotonEliminar;
+    private javax.swing.JButton jBotonGuardar;
+    private javax.swing.JButton jBotonNuevo;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
