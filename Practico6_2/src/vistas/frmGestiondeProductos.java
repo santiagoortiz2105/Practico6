@@ -32,7 +32,7 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
     };
     jTable1.setModel(modelo);
 
-    // Llenar combos con valores del enum Rubro
+    // Llenar combos con valores del Rubro
     jComboRubro.setModel(new javax.swing.DefaultComboBoxModel<>(Producto.Rubro.values()));
     jComboFiltrar.setModel(new javax.swing.DefaultComboBoxModel<>(Producto.Rubro.values()));
     }
@@ -362,7 +362,7 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
         jTextField3.setText(""); // Precio
         jSpinner1.setValue(0);   // Stock
         jComboRubro.setSelectedIndex(0); // Primer rubro
-        jTextField1.requestFocus(); // Cursor en Código
+        jTextField1.requestFocus(); 
     }//GEN-LAST:event_jBotonNuevoActionPerformed
 
     private void jBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonGuardarActionPerformed
@@ -380,7 +380,7 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
 
         Producto p = new Producto(codigo, descripcion, precio, stock, rubro);
 
-        if(listaProductos.add(p)) { // TreeSet evita duplicados
+        if(listaProductos.add(p)) { // Un TreeSet evita duplicados
             modelo.addRow(new Object[]{codigo, descripcion, precio, rubro, stock});
             JOptionPane.showMessageDialog(this, "Producto agregado correctamente");
         } else {
