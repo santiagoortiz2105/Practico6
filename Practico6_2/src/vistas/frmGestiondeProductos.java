@@ -14,14 +14,12 @@ import model.CatalogodeProductos;
  * @author santi
  */
 public class frmGestiondeProductos extends javax.swing.JInternalFrame {
-    private TreeSet<Producto> listaProductos;
     private DefaultTableModel modelo;
     /**
      * Creates new form frmGestiondeProductos
      */
     public frmGestiondeProductos() {
         initComponents();
-         listaProductos = new TreeSet<>();
         modelo = new DefaultTableModel(
         new Object[][]{},
         new String[]{"Código", "Descripcion", "Precio", "Rubro", "Stock"}
@@ -333,28 +331,22 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
     private void jBotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonActualizarActionPerformed
        try {
             int codigo = Integer.parseInt(jTextField1.getText());
-            boolean encontrado = false;
+            Producto p = CatalogodeProductos.buscarPorCodigo(codigo);
 
-            for (Producto p : listaProductos) {
-                if (p.getCodigo() == codigo) {
-                    p.setDescripcion(jTextField2.getText());
-                    p.setPrecio(Double.parseDouble(jTextField3.getText()));
-                    p.setStock((int) jSpinner1.getValue());
-                    p.setRubro((Producto.Rubro) jComboRubro.getSelectedItem());
-                    encontrado = true;
-                    break;
-                }
-            }
+            if (p != null) {
+                p.setDescripcion(jTextField2.getText());
+                p.setPrecio(Double.parseDouble(jTextField3.getText()));
+                p.setStock((int) jSpinner1.getValue());
+                p.setRubro((Producto.Rubro) jComboRubro.getSelectedItem());
 
-            if(encontrado) {
-                JOptionPane.showMessageDialog(this, "Producto actualizado");
-                mostrarProductos(listaProductos);
+                JOptionPane.showMessageDialog(this, "Producto actualizado correctamente");
+                mostrarProductos(CatalogodeProductos.getProductos());
             } else {
                 JOptionPane.showMessageDialog(this, "Producto no encontrado");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al actualizar: " + e.getMessage());
-        } 
+        }  
     }//GEN-LAST:event_jBotonActualizarActionPerformed
 
     private void jBotonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonNuevoActionPerformed
@@ -397,16 +389,17 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
 
     private void jBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonEliminarActionPerformed
         int fila = jTable1.getSelectedRow();
-    if(fila >= 0) {
-        int codigo = (int) modelo.getValueAt(fila, 0);
-        
-        Producto dummy = new Producto(codigo, "", 0, 0, Producto.Rubro.COMESTIBLE);
-        listaProductos.remove(dummy);
-        modelo.removeRow(fila);
-        JOptionPane.showMessageDialog(this, "Producto eliminado correctamente");
-    } else {
-        JOptionPane.showMessageDialog(this, "Seleccione un producto para eliminar");
-    }
+        if(fila >= 0) {
+            int codigo = (int) modelo.getValueAt(fila, 0);
+            Producto p = CatalogodeProductos.buscarPorCodigo(codigo);
+
+            if (p != null && CatalogodeProductos.eliminarProducto(p)) {
+                modelo.removeRow(fila);
+                JOptionPane.showMessageDialog(this, "Producto eliminado correctamente");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione un producto para eliminar");
+        }
     }//GEN-LAST:event_jBotonEliminarActionPerformed
 
     private void jBotonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonCerrarActionPerformed
@@ -416,14 +409,7 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
     private void jBotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonBuscarActionPerformed
         try {
             int codigo = Integer.parseInt(jTextField1.getText());
-            Producto encontrado = null;
-
-            for (Producto p : listaProductos) {
-                if (p.getCodigo() == codigo) {
-                    encontrado = p;
-                    break;
-                }
-            }
+            Producto encontrado = CatalogodeProductos.buscarPorCodigo(codigo);
 
             if (encontrado != null) {
                 jTextField2.setText(encontrado.getDescripcion());
@@ -439,15 +425,22 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBotonBuscarActionPerformed
 
     private void jComboFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboFiltrarActionPerformed
-        Producto.Rubro rubroSeleccionado = (Producto.Rubro) jComboFiltrar.getSelectedItem();
+         Producto.Rubro rubroSeleccionado = (Producto.Rubro) jComboFiltrar.getSelectedItem();
         if(rubroSeleccionado != null) {
-            TreeSet<Producto> filtrados = new TreeSet<>();
-            for (Producto p : listaProductos) {
+            javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+            modelo.setRowCount(0);
+
+            for (Producto p : CatalogodeProductos.getProductos()) {
                 if (p.getRubro() == rubroSeleccionado) {
-                    filtrados.add(p);
+                    modelo.addRow(new Object[]{
+                        p.getCodigo(),
+                        p.getDescripcion(),
+                        p.getPrecio(),
+                        p.getRubro(),
+                        p.getStock()
+                    });
                 }
             }
-            mostrarProductos(filtrados);
         }
     }//GEN-LAST:event_jComboFiltrarActionPerformed
 
