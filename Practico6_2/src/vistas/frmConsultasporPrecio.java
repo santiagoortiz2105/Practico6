@@ -4,6 +4,11 @@
  */
 package vistas;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.CatalogodeProductos;
+import model.Producto;
+
 /**
  *
  * @author santi
@@ -46,10 +51,7 @@ public class frmConsultasporPrecio extends javax.swing.JInternalFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Codigo", "Descripcion ", "Precio", "Categoria", "Stock"
@@ -134,7 +136,25 @@ public class frmConsultasporPrecio extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        
+        try {
+        double desde = Double.parseDouble(jTextField1.getText());
+        double hasta = Double.parseDouble(jTextField2.getText());
+
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0); // limpia la tabla
+
+        for (Producto p : CatalogodeProductos.buscarPorPrecio(desde, hasta)) {
+            modelo.addRow(new Object[]{
+                p.getCodigo(),
+                p.getDescripcion(),
+                p.getPrecio(),
+                p.getRubro(),
+                p.getStock()
+            });
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Ingrese valores numéricos válidos.");
+    }
     }//GEN-LAST:event_jTextField2ActionPerformed
 
 

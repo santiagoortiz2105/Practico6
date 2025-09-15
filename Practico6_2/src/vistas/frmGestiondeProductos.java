@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import model.Producto;
 import javax.swing.table.DefaultTableModel;
 import java.util.TreeSet;
+import model.CatalogodeProductos;
 /**
  *
  * @author santi
@@ -380,14 +381,16 @@ public class frmGestiondeProductos extends javax.swing.JInternalFrame {
 
         Producto p = new Producto(codigo, descripcion, precio, stock, rubro);
 
-        if(listaProductos.add(p)) { // Un TreeSet evita duplicados
+        if (CatalogodeProductos.agregarProducto(p)) {
+            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
             modelo.addRow(new Object[]{codigo, descripcion, precio, rubro, stock});
+
             JOptionPane.showMessageDialog(this, "Producto agregado correctamente");
         } else {
             JOptionPane.showMessageDialog(this, "Ya existe un producto con ese código");
         }
 
-    } catch(NumberFormatException e) {
+    } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(this, "Error en los valores numéricos");
     }
     }//GEN-LAST:event_jBotonGuardarActionPerformed

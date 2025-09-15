@@ -21,7 +21,7 @@ public class CatalogodeProductos {
         return productos.remove(p);
     }
 
-    // Buscar por código
+    // Buscar por el código
     public static Producto buscarPorCodigo(int codigo) {
         for (Producto p : productos) {
             if (p.getCodigo() == codigo) {
@@ -30,7 +30,16 @@ public class CatalogodeProductos {
         }
         return null;
     }
-
+// Buscar productos por precios
+public static TreeSet<Producto> buscarPorPrecio(double desde, double hasta) {
+    TreeSet<Producto> filtrados = new TreeSet<>();
+    for (Producto p : productos) {
+        if (p.getPrecio() >= desde && p.getPrecio() <= hasta) {
+            filtrados.add(p);
+        }
+    }
+    return filtrados;
+}
     // Obtener todos los productos
     public static TreeSet<Producto> getProductos() {
         return productos;
