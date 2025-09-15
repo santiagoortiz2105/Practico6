@@ -37,10 +37,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jConsultasporPrecioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="jConsultasporRubro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultas por Rubro"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jConsultasporRubroActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
