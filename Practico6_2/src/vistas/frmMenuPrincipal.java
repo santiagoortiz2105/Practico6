@@ -33,7 +33,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jGestióndeProductos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jConsultasporNombre = new javax.swing.JMenuItem();
         jConsultasporPrecio = new javax.swing.JMenuItem();
         jConsultasporRubro = new javax.swing.JMenuItem();
 
@@ -64,8 +64,13 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         jMenu2.setText("Consultas");
 
-        jMenuItem1.setText("Consultas por Nombre");
-        jMenu2.add(jMenuItem1);
+        jConsultasporNombre.setText("Consultas por Nombre");
+        jConsultasporNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConsultasporNombreActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jConsultasporNombre);
 
         jConsultasporPrecio.setText("Consultas por Precio");
         jConsultasporPrecio.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +122,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     jDesktopPane1.add(consultas);
     consultas.setVisible(true);
     try {
-        consultas.setSelected(true); // lo trae al frente
+        consultas.setSelected(true); 
     } catch (java.beans.PropertyVetoException ex) {
         ex.printStackTrace();
     }
@@ -128,11 +133,22 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     jDesktopPane1.add(consultas);
     consultas.setVisible(true);
     try {
-        consultas.setSelected(true); // lo trae al frente
+        consultas.setSelected(true); 
     } catch (java.beans.PropertyVetoException ex) {
         ex.printStackTrace();
     }
     }//GEN-LAST:event_jConsultasporRubroActionPerformed
+
+    private void jConsultasporNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultasporNombreActionPerformed
+        frmConsultasporNombre consultas = new frmConsultasporNombre();
+    jDesktopPane1.add(consultas);
+    consultas.setVisible(true);
+    try {
+        consultas.setSelected(true); 
+    } catch (java.beans.PropertyVetoException ex) {
+        ex.printStackTrace();
+    }
+    }//GEN-LAST:event_jConsultasporNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +176,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jConsultasporNombre;
     private javax.swing.JMenuItem jConsultasporPrecio;
     private javax.swing.JMenuItem jConsultasporRubro;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -167,6 +184,5 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
