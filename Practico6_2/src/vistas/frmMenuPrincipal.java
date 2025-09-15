@@ -34,7 +34,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jGestióndeProductos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jConsultasporPrecio = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,8 +67,13 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jMenuItem1.setText("Consultas por Nombre");
         jMenu2.add(jMenuItem1);
 
-        jMenuItem2.setText("Consultas por Precio");
-        jMenu2.add(jMenuItem2);
+        jConsultasporPrecio.setText("Consultas por Precio");
+        jConsultasporPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConsultasporPrecioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jConsultasporPrecio);
 
         jMenuItem3.setText("Consultas por Rubro");
         jMenu2.add(jMenuItem3);
@@ -102,6 +107,17 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jGestióndeProductosActionPerformed
 
+    private void jConsultasporPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultasporPrecioActionPerformed
+         frmConsultasporPrecio consultas = new frmConsultasporPrecio();
+    jDesktopPane1.add(consultas);
+    consultas.setVisible(true);
+    try {
+        consultas.setSelected(true); // lo trae al frente
+    } catch (java.beans.PropertyVetoException ex) {
+        ex.printStackTrace();
+    }
+    }//GEN-LAST:event_jConsultasporPrecioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -128,13 +144,13 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jConsultasporPrecio;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuItem jGestióndeProductos;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }
