@@ -95,7 +95,7 @@ public class frmConsultasporRubro extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Descripcion", "Precio", "Categoria", "Stock"
+                "Código", "Descripción", "Precio", "Categoría", "Stock"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
