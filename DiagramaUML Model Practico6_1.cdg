@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="model">
+  <ClassDiagramComponents>
+    <Class name="Producto" package="model" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="categoria" type="String" visibility="private"/>
+        <Field name="precio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="categoria"/>
+          <Argument type="double" name="precio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getCategoria" returnType="String" visibility="public"/>
+        <Method name="setCategoria" returnType="void" visibility="public">
+          <Argument type="String" name="categoria"/>
+        </Method>
+        <Method name="getPrecio" returnType="double" visibility="public"/>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="double" name="precio"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

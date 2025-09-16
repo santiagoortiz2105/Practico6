@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="model">
+  <ClassDiagramComponents>
+    <Class name="CatalogodeProductos" package="model" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="productos" type="TreeSet&lt;Producto&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarProducto" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Producto" name="p"/>
+        </Method>
+        <Method name="eliminarProducto" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Producto" name="p"/>
+        </Method>
+        <Method name="buscarPorCodigo" returnType="Producto" visibility="public" isStatic="true">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="buscarPorPrecio" returnType="TreeSet&lt;Producto&gt;" visibility="public" isStatic="true">
+          <Argument type="double" name="desde"/>
+          <Argument type="double" name="hasta"/>
+        </Method>
+        <Method name="getProductos" returnType="TreeSet&lt;Producto&gt;" visibility="public" isStatic="true"/>
+        <Method name="buscarPorNombre" returnType="TreeSet&lt;Producto&gt;" visibility="public" isStatic="true">
+          <Argument type="String" name="texto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Producto" package="model" visibility="public" xPosition="577.0" yPosition="84.0">
+      <Fields>
+        <Field name="codigo" type="int" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="precio" type="double" visibility="private"/>
+        <Field name="stock" type="int" visibility="private"/>
+        <Field name="rubro" type="Rubro" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="codigo"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="double" name="precio"/>
+          <Argument type="int" name="stock"/>
+          <Argument type="Rubro" name="rubro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCodigo" returnType="int" visibility="public"/>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getPrecio" returnType="double" visibility="public"/>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="double" name="precio"/>
+        </Method>
+        <Method name="getStock" returnType="int" visibility="public"/>
+        <Method name="setStock" returnType="void" visibility="public">
+          <Argument type="int" name="stock"/>
+        </Method>
+        <Method name="getRubro" returnType="Rubro" visibility="public"/>
+        <Method name="setRubro" returnType="void" visibility="public">
+          <Argument type="Rubro" name="rubro"/>
+        </Method>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Producto" name="otro"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="model.Producto" target="model.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="productos" source="model.CatalogodeProductos" target="model.Producto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TreeSet&lt;Producto&gt;"/>
+    <UseRelation source="model.CatalogodeProductos" target="model.Producto" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

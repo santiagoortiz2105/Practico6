@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="vistas">
+  <ClassDiagramComponents>
+    <Class name="frmGestiondeProductos" package="vistas" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="modeloTabla" type="DefaultTableModel" visibility="private"/>
+        <Field name="logger" type="java.util.logging.Logger" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="jBotonAgregar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jComboBox1" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jTable1" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="inicializarTabla" returnType="void" visibility="private"/>
+        <Method name="configurarEventos" returnType="void" visibility="private"/>
+        <Method name="agregarProducto" returnType="void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
