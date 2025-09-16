@@ -18,7 +18,7 @@ public class frmConsultasporPrecio extends javax.swing.JInternalFrame {
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         modelo = new DefaultTableModel(
                 new Object[][]{},
-                new String[]{"Codigo", "Descripcion", "Precio", "Categoria", "Stock"}
+                new String[]{"Código", "Descripción", "Precio", "Categoría", "Stock"}
         ) {
             @Override
             public boolean isCellEditable(int row, int column) {
