@@ -1,5 +1,5 @@
 package app;
-
+//Integrantes: Manceñido Xenia, Ortiz Lourdes, Ortiz Santiago, Ozan Santiago 
 import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
 import vistas.frmGestiondeProductos;

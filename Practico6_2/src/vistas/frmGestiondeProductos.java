@@ -1,5 +1,5 @@
 package vistas;
-
+//Integrantes: Manceñido Xenia, Ortiz Lourdes, Ortiz Santiago, Ozan Santiago 
 import javax.swing.JOptionPane;
 import model.Producto;
 import javax.swing.table.DefaultTableModel;

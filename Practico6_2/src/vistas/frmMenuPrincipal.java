@@ -1,5 +1,5 @@
 package vistas;
-
+//Integrantes: Manceñido Xenia, Ortiz Lourdes, Ortiz Santiago, Ozan Santiago 
 import java.awt.Image;
 
 public class frmMenuPrincipal extends javax.swing.JFrame {
