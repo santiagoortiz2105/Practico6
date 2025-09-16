@@ -1,23 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author santi
- */
 import java.util.Objects;
 
 public class Producto implements Comparable<Producto> {
+
     private int codigo;
     private String descripcion;
     private double precio;
     private int stock;
     private Rubro rubro;
 
-    
     public Producto(int codigo, String descripcion, double precio, int stock, Rubro rubro) {
         this.codigo = codigo;
         this.descripcion = descripcion;
@@ -25,6 +17,7 @@ public class Producto implements Comparable<Producto> {
         this.stock = stock;
         this.rubro = rubro;
     }
+
     public int getCodigo() {
         return codigo;
     }
@@ -64,11 +57,12 @@ public class Producto implements Comparable<Producto> {
     public void setRubro(Rubro rubro) {
         this.rubro = rubro;
     }
-    
+
     @Override
     public int compareTo(Producto otro) {
         return Integer.compare(this.codigo, otro.codigo);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(codigo);
@@ -88,10 +82,12 @@ public class Producto implements Comparable<Producto> {
         final Producto other = (Producto) obj;
         return this.codigo == other.codigo;
     }
+
     @Override
     public String toString() {
         return "Producto{" + "codigo=" + codigo + ",descripcion='" + descripcion + '\'' + ",precio=" + precio + ",stock=" + stock + ",rubro=" + rubro + '}';
     }
+
     public enum Rubro {
         COMESTIBLE,
         LIMPIEZA,
