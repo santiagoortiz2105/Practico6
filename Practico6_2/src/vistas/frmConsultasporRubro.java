@@ -18,6 +18,11 @@ public class frmConsultasporRubro extends javax.swing.JInternalFrame {
      */
     public frmConsultasporRubro() {
         initComponents();
+        this.setClosable(true);   // X para cerrar
+        this.setIconifiable(true); // Minimizar
+        this.setMaximizable(true); // Maximizar
+        this.setResizable(true);   // Redimensionar
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         modelo= new DefaultTableModel(
         new Object[][]{},
         new String[]{"Codigo", "Descripcion", "Precio", "Categoria", "Stock"}        
@@ -29,9 +34,38 @@ public class frmConsultasporRubro extends javax.swing.JInternalFrame {
                
         }; 
          jTable1.setModel(modelo);
+         jComboRubro.addItemListener(new java.awt.event.ItemListener() {
+        @Override
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+                filtrarPorRubro();
+            }
+        }
+    });
          // Llenar combo con valores del Rubro
         jComboRubro.setModel(new javax.swing.DefaultComboBoxModel<>(Producto.Rubro.values()));
+        
     }
+    
+    private void filtrarPorRubro() {
+    Producto.Rubro rubroSeleccionado = (Producto.Rubro) jComboRubro.getSelectedItem();
+
+    if (rubroSeleccionado != null) {
+        modelo.setRowCount(0); // Limpio la tabla
+
+        for (Producto p : CatalogodeProductos.getProductos()) {
+            if (p.getRubro() == rubroSeleccionado) {
+                modelo.addRow(new Object[]{
+                    p.getCodigo(),
+                    p.getDescripcion(),
+                    p.getPrecio(),
+                    p.getRubro(),
+                    p.getStock()
+                });
+            }
+        }
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

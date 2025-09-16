@@ -14,14 +14,77 @@ import model.Producto;
  * @author santi
  */
 public class frmConsultasporPrecio extends javax.swing.JInternalFrame {
-
+    private DefaultTableModel modelo; 
     /**
      * Creates new form frmConsultasporPrecio
      */
     public frmConsultasporPrecio() {
         initComponents();
+        this.setClosable(true);   // X de cerrar
+        this.setIconifiable(true); // Minimizar
+        this.setMaximizable(true); // Maximizar
+        this.setResizable(true);   // Redimensionar
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+         modelo = new DefaultTableModel(
+        new Object[][]{},
+        new String[]{"Codigo", "Descripcion", "Precio", "Categoria", "Stock"}
+    ) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    jTable1.setModel(modelo);
+
+    // 🚀 KeyListener clásico
+    jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        @Override
+        public void keyReleased(java.awt.event.KeyEvent evt) {
+            filtrarPorPrecio();
+        }
+    });
+
+    jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        @Override
+        public void keyReleased(java.awt.event.KeyEvent evt) {
+            filtrarPorPrecio();
+        }
+    });
+    }
+    
+private void filtrarPorPrecio() {
+    String textoDesde = jTextField1.getText().trim();
+    String textoHasta = jTextField2.getText().trim();
+
+    if (textoDesde.isEmpty() || textoHasta.isEmpty()) {
+        return;
     }
 
+    try {
+        double desde = Double.parseDouble(textoDesde);
+        double hasta = Double.parseDouble(textoHasta);
+
+        if (hasta < desde) {
+            return;
+        }
+
+        modelo.setRowCount(0);
+
+        for (Producto p : CatalogodeProductos.buscarPorPrecio(desde, hasta)) {
+            modelo.addRow(new Object[]{
+                p.getCodigo(),
+                p.getDescripcion(),
+                p.getPrecio(),
+                p.getRubro(),
+                p.getStock()
+            });
+        }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Ingrese valores numéricos válidos.");
+    }
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -141,7 +204,7 @@ public class frmConsultasporPrecio extends javax.swing.JInternalFrame {
         double hasta = Double.parseDouble(jTextField2.getText());
 
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        modelo.setRowCount(0); // limpia la tabla
+        modelo.setRowCount(0); 
 
         for (Producto p : CatalogodeProductos.buscarPorPrecio(desde, hasta)) {
             modelo.addRow(new Object[]{
